@@ -8,7 +8,8 @@ import sys
 from freqtrade.strategy import IStrategy, stoploss_from_absolute
 from pandas import DataFrame
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE if (HERE / "hk_strategy_core.py").is_file() else HERE.parents[1] / "strategies"))
 from hk_strategy_core import LevelsFeed, LongPlan, Timeline
 
 

@@ -1,5 +1,8 @@
 name: Paper strategy framework contracts
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
 permissions:
   contents: read
 jobs:
@@ -13,7 +16,7 @@ jobs:
           - name: Freqtrade 2026.10
             image: freqtradeorg/freqtrade@sha256:956c03780934eeb93734a1f352e7e150b73becdafa3767a947a25ad2422fba2e
             executable: python
-            pythonpath: /examples
+            pythonpath: /repo/strategies
             test: native_freqtrade.py
           - name: Hummingbot 2.17.0
             image: hummingbot/hummingbot@sha256:aaccb15f549c3e530c8831dd3d8d0085739fbdf131d01cb334283f237746be21
@@ -34,5 +37,23 @@ jobs:
             --pids-limit 128 --memory 2g --cpus 2 --tmpfs /tmp:rw,size=128m \
             -e PYTHONDONTWRITEBYTECODE=1 -e OPENBLAS_NUM_THREADS=1 \
             -e PYTHONPATH="$FRAMEWORK_PATH" \
-            -v "$PWD/strategies:/examples:ro" -w /examples \
+            -v "$PWD:/repo:ro" -w /repo/strategies \
             --entrypoint "$PYTHON_BIN" "$FRAMEWORK_IMAGE" "tests/$TEST_MODULE" -v
+      - name: Reproduce the full native historical public-wall proxy result
+        if: matrix.test == 'native_freqtrade.py'
+        env:
+          FRAMEWORK_IMAGE: ${{ matrix.image }}
+        run: |
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --pids-limit 128 --memory 2g --cpus 2 --tmpfs /tmp:rw,size=256m \
+            -e PYTHONDONTWRITEBYTECODE=1 -e OPENBLAS_NUM_THREADS=1 \
+            -e FT_APP_ENV=offline-backtest \
+            -v "$PWD:/repo:ro" -w /repo/strategies \
+            --entrypoint /bin/sh "$FRAMEWORK_IMAGE" /repo/strategies/reproduce_freqtrade.sh \
+            > "$RUNNER_TEMP/native-public-wall-proxy.tar"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: matrix.test == 'native_freqtrade.py'
+        with:
+          name: native-public-wall-proxy-${{ github.sha }}
+          path: ${{ runner.temp }}/native-public-wall-proxy.tar
+          if-no-files-found: error

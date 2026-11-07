@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import dataclass
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -55,6 +56,7 @@ def replay(candles, timeline, *, fee=0.001, slippage=0.0005, quote_budget=100.0)
     plan_started = 0
     usable_bars = 0
     fills = []
+    daily_equity = {}
 
     def fill(side, price, quantity, stamp, reason):
         nonlocal cash, inventory, basis, fees, realized
@@ -131,6 +133,8 @@ def replay(candles, timeline, *, fee=0.001, slippage=0.0005, quote_budget=100.0)
                 pending_exit = inventory > 0
 
         equity = cash + inventory * bar.close
+        day = datetime.fromtimestamp(bar.timestamp, timezone.utc).date().isoformat()
+        daily_equity[day] = equity
         peak = max(peak, equity)
         drawdown = max(drawdown, peak - equity)
         if cash < -1e-8 or inventory < -1e-12:
@@ -140,6 +144,11 @@ def replay(candles, timeline, *, fee=0.001, slippage=0.0005, quote_budget=100.0)
     drawdown = max(drawdown, peak - cash)
     if abs(realized - (cash - 1000.0)) > 1e-7:
         raise AssertionError("Fill ledger does not reconcile to the final cash")
+    daily_equity[datetime.fromtimestamp(candles[-1].timestamp, timezone.utc).date().isoformat()] = cash
+    previous, daily = 1000.0, []
+    for day, equity in daily_equity.items():
+        daily.append({"utc_day": day, "net_quote": equity - previous, "ending_equity_quote": equity})
+        previous = equity
     return {
         "model": "offline_5m_ohlcv_grid_replay_not_native_hummingbot",
         "input_basis": (PUBLICATION_PROXY if any(s is not None and s.tier == PUBLICATION_PROXY
@@ -157,6 +166,8 @@ def replay(candles, timeline, *, fee=0.001, slippage=0.0005, quote_budget=100.0)
                         "No queue, depth, latency, spread or partial fill reconstruction",
                         "Five minute refresh differs from the script's 30 second refresh"],
         "fills": fills,
+        "daily_equity_change": daily,
+        "daily_basis": "Close mark to market; final day includes the simulated end-of-window close costs",
     }
 
 

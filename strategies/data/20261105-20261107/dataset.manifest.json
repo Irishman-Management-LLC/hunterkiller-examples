@@ -1,0 +1,17 @@
+{
+  "kind": "historical_public_wall_proxy",
+  "window_start": "2026-11-05T00:00:00Z",
+  "window_end": "2026-11-07T00:00:00Z",
+  "candle_market": "Bybit BTC/USDT spot",
+  "candles": 576,
+  "native_startup_candles": 1,
+  "inputs": {
+    "public-wall-proxy.manifest.json": "a7d4fc921ff75e6f8bf5d5186fb272fd6409febb9d24fc85a3f1c048d2442206",
+    "instrument.raw.json": "59ca02d10a2593450a7d2f729adc9ea8692e45e2d8827c6f6b36ce93057039aa",
+    "candles.receipt.json": "5b4cae2e6a43647d12d19e360ccded09cd2349bdef1407b103db6eacabd53879",
+    "candles.csv": "aca4ebbe9bb19511a7211536bd14871abf29eb2b13dc60fd3ac5a0ccb9123f7a",
+    "instrument.receipt.json": "318f3c15bb7563e106db10ce33372d7fa5a959b7d8bf7f53d11669b6690427a2",
+    "public-wall-proxy.jsonl": "6f0dae8b614c2f54694e3b42d06b063165e26fbaf32c2ecfb0adeaf1c9ca16ff",
+    "bybit/BTC_USDT-5m.json": "1d4995ede5c31bc6d7b03eb5baf885f072867b619af55aade76ae9e59232e2fc"
+  }
+}

@@ -31,7 +31,9 @@ are not confused with external adoption.
 * `schemas/composio-openapi.json`: public REST definition for custom bindings, not a hosted catalog listing.
 * `space`: manual Gradio ladder demo for Hugging Face Spaces.
 * `examples/sdk.py` and `examples/sdk.mjs`: existing published SDK Desk Read examples.
-* [`strategies`](strategies/README.md): Freqtrade and Hummingbot paper examples with point in time inputs. Real historical results remain pending.
+* [`examples/freqtrade`](examples/freqtrade/README.md): the Freqtrade paper strategy, native historical public wall proxy table and API key signup link.
+* [`examples/hummingbot`](examples/hummingbot/README.md): the Hummingbot paper grid and its labeled historical quote model table.
+* [`strategies`](strategies/README.md): shared point in time inputs, sealed observations, [full results](strategies/RESULTS.md), costs and losses.
 
 The wrappers call the public endpoint directly because the versions of the
 existing SDKs currently on PyPI and npm do not expose `levels`. They do not
@@ -52,4 +54,5 @@ teasers. See the current auth and tool details on the data door.
 [Agent door](https://hunterkiller.io/for-agents), [proof](https://hunterkiller.io/proof),
 [privacy](https://hunterkiller.io/legal/privacy), [risk](https://hunterkiller.io/legal/risk).
 Never infer a future return or trade recommendation from these measurements.
-No measured performance or backtest is claimed in this repository.
+The paper examples retain their historical proxy inputs, costs and losing
+periods. Those results describe a simulation, not live performance.

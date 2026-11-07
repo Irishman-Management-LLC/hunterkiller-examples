@@ -11,6 +11,7 @@ from unittest.mock import patch
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "examples/freqtrade"))
 from HunterKillerWalls import HunterKillerWalls
 from test_core import fixture, T
 
@@ -56,6 +57,15 @@ class TestFreqtradeAdapter(unittest.TestCase):
             HunterKillerWalls({**self.config, "dry_run": False}).bot_start()
         with self.assertRaisesRegex(ValueError, "explicit hk_levels.replay"):
             HunterKillerWalls({"dry_run": True, "runmode": "backtest"}).bot_start()
+
+    def test_future_prices_do_not_change_the_already_closed_prefix(self):
+        frame = pd.DataFrame({"date": pd.to_datetime([T - 300, T, T + 300], unit="s", utc=True),
+                              "open": [100.0, 100.0, 110.0], "high": [101.0, 101.0, 112.0],
+                              "low": [99.0, 99.0, 109.0], "close": [100.0, 100.0, 111.0],
+                              "volume": [10.0, 10.0, 10.0]})
+        full = self.strategy.populate_indicators(frame.copy(), {"pair": "BTC/USDT"})
+        prefix = self.strategy.populate_indicators(frame.iloc[:2].copy(), {"pair": "BTC/USDT"})
+        self.assertEqual(full.iloc[:2]["hk_entry_tag"].tolist(), prefix["hk_entry_tag"].tolist())
 
 
 if __name__ == "__main__":

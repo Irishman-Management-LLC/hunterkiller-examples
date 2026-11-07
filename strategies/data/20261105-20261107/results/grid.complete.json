@@ -1,0 +1,298 @@
+{
+  "model": "offline_5m_ohlcv_grid_replay_not_native_hummingbot",
+  "input_basis": "historical_public_wall_proxy",
+  "window_start": 1793836800,
+  "window_end": 1794009600,
+  "bars": 576,
+  "usable_input_bars": 509,
+  "missing_or_stale_input_bars": 67,
+  "initial_quote": 1000.0,
+  "final_quote": 998.2084216414804,
+  "net_quote": -1.7915783585195868,
+  "fees_quote": 1.1001224201325432,
+  "max_drawdown_quote": 1.7915783585195868,
+  "sell_fills_at_a_loss": 6,
+  "fee_each_side": 0.001,
+  "market_slippage": 0.0005,
+  "quote_notional_budget": 100.0,
+  "assumptions": [
+    "Next candle orders only",
+    "Strict cross for passive fills",
+    "Buys first and one side per bar",
+    "Losing boundary first on ambiguous bars",
+    "Market closes include slippage",
+    "Every remaining position closed at window end",
+    "No queue, depth, latency, spread or partial fill reconstruction",
+    "Five minute refresh differs from the script's 30 second refresh"
+  ],
+  "fills": [
+    {
+      "bar_open": 1793883900,
+      "side": "buy",
+      "price": 79643.49233333333,
+      "amount": 0.0006277976835914491,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793883858.0
+    },
+    {
+      "bar_open": 1793883900,
+      "side": "buy",
+      "price": 79551.58466666666,
+      "amount": 0.0006285229918361484,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793883858.0
+    },
+    {
+      "bar_open": 1793884200,
+      "side": "sell",
+      "price": 79505.32745000001,
+      "amount": 0.0012563206754275975,
+      "fee_quote": 0.09988418668207633,
+      "realized_net_quote": -0.3156975046057511,
+      "reason": "unavailable_or_time_limit",
+      "wall_receipt_at": 1793883858.0
+    },
+    {
+      "bar_open": 1793885400,
+      "side": "buy",
+      "price": 79642.53336666667,
+      "amount": 0.0006278052428318013,
+      "fee_quote": 0.05000000000000001,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793885359.0
+    },
+    {
+      "bar_open": 1793885400,
+      "side": "buy",
+      "price": 79608.86673333333,
+      "amount": 0.0006280707420127651,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793885359.0
+    },
+    {
+      "bar_open": 1793886000,
+      "side": "sell",
+      "price": 79654.9526,
+      "amount": 0.0012558759848445664,
+      "fee_quote": 0.10003674204427226,
+      "realized_net_quote": -0.16329469777201666,
+      "reason": "unavailable_or_time_limit",
+      "wall_receipt_at": 1793885359.0
+    },
+    {
+      "bar_open": 1793887200,
+      "side": "buy",
+      "price": 79626.736,
+      "amount": 0.0006279297948367493,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793887500,
+      "side": "buy",
+      "price": 79616.336,
+      "amount": 0.0003139271820394742,
+      "fee_quote": 0.024993732004787942,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793887500,
+      "side": "buy",
+      "price": 79585.972,
+      "amount": 0.00031404695295783966,
+      "fee_quote": 0.024993732004787945,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793887800,
+      "side": "buy",
+      "price": 79572.536,
+      "amount": 3.387435074044846e-07,
+      "fee_quote": 2.6954679937709614e-05,
+      "realized_net_quote": null,
+      "reason": "bid_before_stop",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793887800,
+      "side": "buy",
+      "price": 79564.072,
+      "amount": 3.387795428281953e-07,
+      "fee_quote": 2.6954679937709614e-05,
+      "realized_net_quote": null,
+      "reason": "bid_before_stop",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793887800,
+      "side": "sell",
+      "price": 79515.830196,
+      "amount": 0.0012565814528842957,
+      "fee_quote": 0.09991811743499063,
+      "realized_net_quote": -0.3232154252651185,
+      "reason": "wall_stop",
+      "wall_receipt_at": 1793887154.0
+    },
+    {
+      "bar_open": 1793889600,
+      "side": "buy",
+      "price": 78882.41,
+      "amount": 0.0006338548733488239,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793889582.0
+    },
+    {
+      "bar_open": 1793889900,
+      "side": "sell",
+      "price": 78831.46455,
+      "amount": 0.0006338548733488239,
+      "fee_quote": 0.049967707978242556,
+      "realized_net_quote": -0.13225972973567934,
+      "reason": "unavailable_or_time_limit",
+      "wall_receipt_at": 1793889582.0
+    },
+    {
+      "bar_open": 1793899200,
+      "side": "buy",
+      "price": 75997.52706666666,
+      "amount": 0.0006579161445100566,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793899097.0
+    },
+    {
+      "bar_open": 1793899500,
+      "side": "buy",
+      "price": 75940.4604,
+      "amount": 0.00032896410961414036,
+      "fee_quote": 0.024981685939173884,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793899097.0
+    },
+    {
+      "bar_open": 1793899500,
+      "side": "buy",
+      "price": 75827.7208,
+      "amount": 0.00032945320887415994,
+      "fee_quote": 0.024981685939173884,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793899097.0
+    },
+    {
+      "bar_open": 1793900100,
+      "side": "sell",
+      "price": 76052.85455,
+      "amount": 0.001316333462998357,
+      "fee_quote": 0.10011091740071186,
+      "realized_net_quote": -0.052528766914946345,
+      "reason": "unavailable_or_time_limit",
+      "wall_receipt_at": 1793899097.0
+    },
+    {
+      "bar_open": 1793975400,
+      "side": "buy",
+      "price": 75413.194,
+      "amount": 0.000663013954825995,
+      "fee_quote": 0.05,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793976900,
+      "side": "buy",
+      "price": 75469.594,
+      "amount": 0.00032991244091870044,
+      "fee_quote": 0.024898357971683306,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793977200,
+      "side": "buy",
+      "price": 75349.06066666667,
+      "amount": 0.00016586360049275975,
+      "fee_quote": 0.012497666495920719,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793977200,
+      "side": "buy",
+      "price": 75159.12133333333,
+      "amount": 0.00016628276480898613,
+      "fee_quote": 0.012497666495920719,
+      "realized_net_quote": null,
+      "reason": "bid_cross",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793977500,
+      "side": "buy",
+      "price": 75045.594,
+      "amount": 3.387952556822934e-06,
+      "fee_quote": 0.00025425091207059583,
+      "realized_net_quote": null,
+      "reason": "bid_before_stop",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793977500,
+      "side": "buy",
+      "price": 75007.388,
+      "amount": 3.389678255035301e-06,
+      "fee_quote": 0.00025425091207059583,
+      "realized_net_quote": null,
+      "reason": "bid_before_stop",
+      "wall_receipt_at": 1793975395.0
+    },
+    {
+      "bar_open": 1793977500,
+      "side": "sell",
+      "price": 74931.697409,
+      "amount": 0.0013318503918582998,
+      "fee_quote": 0.0997978105567842,
+      "realized_net_quote": -0.8045822342261886,
+      "reason": "wall_stop",
+      "wall_receipt_at": 1793975395.0
+    }
+  ],
+  "daily_equity_change": [
+    {
+      "utc_day": "2026-11-05",
+      "net_quote": -0.9869961242932277,
+      "ending_equity_quote": 999.0130038757068
+    },
+    {
+      "utc_day": "2026-11-06",
+      "net_quote": -0.8045822342263591,
+      "ending_equity_quote": 998.2084216414804
+    }
+  ],
+  "daily_basis": "Close mark to market; final day includes the simulated end-of-window close costs",
+  "inputs": {
+    "receipts_sha256": "6f0dae8b614c2f54694e3b42d06b063165e26fbaf32c2ecfb0adeaf1c9ca16ff",
+    "candles_sha256": "aca4ebbe9bb19511a7211536bd14871abf29eb2b13dc60fd3ac5a0ccb9123f7a",
+    "candles_source_url": "https://api.bybit.com/v5/market/kline?category=spot&symbol=BTCUSDT&interval=5&start=1793836500000&end=1794009599999&limit=1000"
+  }
+}

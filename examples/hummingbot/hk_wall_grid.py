@@ -14,7 +14,8 @@ from hummingbot.core.data_type.order_candidate import OrderCandidate
 from hummingbot.core.data_type.trade_fee import DeductedFromReturnsTradeFee
 from hummingbot.strategy.strategy_v2_base import StrategyV2Base, StrategyV2ConfigBase
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE if (HERE / "hk_strategy_core.py").is_file() else HERE.parents[1] / "strategies"))
 from hk_strategy_core import LevelsFeed, grid_quotes
 
 

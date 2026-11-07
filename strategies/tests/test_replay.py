@@ -32,6 +32,7 @@ class TestGridReplay(unittest.TestCase):
         self.assertGreater(report["fees_quote"], 0.19)
         self.assertEqual(report["fills"][-1]["reason"], "wall_stop")
         self.assertAlmostEqual(sum(fill["realized_net_quote"] or 0 for fill in report["fills"]), report["net_quote"])
+        self.assertAlmostEqual(sum(day["net_quote"] for day in report["daily_equity_change"]), report["net_quote"])
 
     def test_a_touch_without_a_cross_does_not_claim_a_maker_fill(self):
         top_bid = grid_quotes(LongPlan(98, 103, T), 100, 0)[0][1]

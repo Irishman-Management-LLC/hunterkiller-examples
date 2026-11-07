@@ -1,0 +1,34 @@
+{
+  "kind": "historical_public_wall_proxy",
+  "start": 1793836800.0,
+  "end": 1794009600.0,
+  "symbol": "BTCUSDT",
+  "viewer": "free",
+  "horizon": "1h",
+  "counts": {
+    "input_lines": 158282,
+    "public_receipts": 3829,
+    "error_receipts": 470
+  },
+  "sources": [
+    {
+      "name": "served_magnets_log.jsonl.1",
+      "sha256_read": "3037ea919e6c955c670419e87ffce515891856d5de0589fff5852195add2c3ab"
+    },
+    {
+      "name": "served_magnets_log.jsonl",
+      "sha256_read": "fb004aa605b62e71c730678549f5c4b6d8ca80392ed3da691cef15b19924a692"
+    }
+  ],
+  "output_sha256": "6f0dae8b614c2f54694e3b42d06b063165e26fbaf32c2ecfb0adeaf1c9ca16ff",
+  "limitations": [
+    "Unknown original snapshot time and delay remain null",
+    "Public wall pair reconstructed by the unchanged public selector with its 1 to 5 percent band",
+    "The compact ledger did not retain API nearest or validation fields",
+    "Free delayed metadata builder does not emit a validated cell flag",
+    "Size ties and conflicting same-second publications become gaps",
+    "A one second availability buffer accounts for floored ledger times",
+    "No owner, paid-only, synthetic or unpublished computed peaks",
+    "Receipt age limit is 15 minutes; gaps are not filled"
+  ]
+}

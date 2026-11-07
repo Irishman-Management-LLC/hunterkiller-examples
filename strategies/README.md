@@ -25,7 +25,7 @@ files to the framework's strategy directory:
 
 ```sh
 python -m pip install ./packages/langchain
-cp strategies/hk_strategy_core.py strategies/HunterKillerWalls.py user_data/strategies/
+cp strategies/hk_strategy_core.py examples/freqtrade/HunterKillerWalls.py user_data/strategies/
 ```
 
 Configure `dry_run: true`, one open trade, spot mode, `BTC/USDT` as the static
@@ -48,7 +48,7 @@ Run Freqtrade's lookahead analysis before drawing conclusions from a backtest.
 ## Hummingbot 2.17
 
 Install the same transport in the Hummingbot environment. Copy
-`hk_strategy_core.py` and `hk_wall_grid.py` into its `scripts/` directory, then
+`strategies/hk_strategy_core.py` and `examples/hummingbot/hk_wall_grid.py` into its `scripts/` directory, then
 create a V2 config for `hk_wall_grid`. The only allowed connector is
 `binance_paper_trade` and the only pair is `BTC-USDT`.
 
@@ -71,6 +71,10 @@ timeout. Importing the script makes no request. Paper fills are simulated.
 
 ## Point in time data and results
 
+The [full results](RESULTS.md) retain the fixed November 5 and 6, 2026 window:
+native Freqtrade lost 4.38 USDT and the grid quote model lost 1.79 USDT after the
+declared costs. Both losing days, all positions and every fill are included.
+
 Exact capture format:
 
 ```json
@@ -92,10 +96,23 @@ Use `--probe` for internal checks. `--authenticated` explicitly opts into the
 application's `HK_LEVELS_API_KEY` environment value; otherwise it is ignored.
 No collector, bot, service or schedule is installed or started by these files.
 
-A real historical results table is pending an approved dated dataset and
-qualified replay. No PnL, hit rate or live trading result is claimed here.
+The first table uses a historical public-wall proxy. Its original snapshot
+time and delay are unknown, and remain unknown in the data. The pair is
+reconstructed from walls actually served to Free readers with the unchanged
+public selector. A 1 second availability buffer covers the ledger's floored
+times. Ambiguous compacted sizes and same-second publications become gaps.
+This is a historical public-wall proxy, not an API replay or live performance.
 Do not substitute today's walls for historical inputs or select only reached
 walls. Retain every eligible candle, skipped interval, cost assumption and loss.
+
+Exact probe-marked API capture started on November 7, 2026. It retains actual
+`as_of`, `delay_sec`, `nearest` and evidence labels, including `validated`
+when the API returns that label. It does not invent a raw validation flag.
+The second table is due no earlier than November 21, 2026, after two weeks of
+capture, with every outage and coverage gap shown. Its first response was 401.
+The capture's requests are internal checks, never external adoption.
+Exact refers to recorded API inputs. Execution in the second table is still
+simulated.
 
 `grid_replay.py` is an offline OHLCV model of the shared grid quotes, not a
 native Hummingbot backtest. It accepts exact receipt JSONL and contiguous real

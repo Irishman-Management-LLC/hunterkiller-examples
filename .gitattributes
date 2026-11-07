@@ -1,0 +1,2 @@
+# Preserve the exact bytes of the sealed public dataset on every checkout.
+strategies/data/** -text
