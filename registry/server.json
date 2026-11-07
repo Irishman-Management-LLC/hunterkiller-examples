@@ -2,10 +2,14 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Irishman-Management-LLC/hunterkiller",
   "title": "Hunter Killer",
-  "description": "Liquidation walls, snapshot age, evidence labels and a public record. Managed OAuth.",
-  "version": "1.0.0",
+  "description": "Liquidation walls, snapshot age, evidence labels and a public record. Public delayed reads and OAuth.",
+  "version": "1.0.1",
   "websiteUrl": "https://hunterkiller.io/for-agents",
   "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://hunterkiller.io/mcp"
+    },
     {
       "type": "streamable-http",
       "url": "https://agents.hunterkiller.io/mcp"

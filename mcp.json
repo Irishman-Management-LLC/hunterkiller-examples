@@ -3,7 +3,7 @@
   "mcpServers": {
     "hunterkiller": {
       "type": "streamable-http",
-      "url": "https://agents.hunterkiller.io/mcp"
+      "url": "https://hunterkiller.io/mcp"
     }
   }
 }

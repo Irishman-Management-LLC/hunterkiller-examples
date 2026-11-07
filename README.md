@@ -42,12 +42,18 @@ appear in the model's argument schema. No payment is automatic.
 
 ## MCP
 
-`https://agents.hunterkiller.io/mcp` is the Managed OAuth transport. Complete
-its normal sign in flow in your MCP client. OAuth transport access and paid
-Hunter Killer data entitlement are separate. `registry/server.json` describes
-that hosted server, not an installable open source server implementation.
-The public apex `https://hunterkiller.io/mcp` also offers discovery and public
-teasers. See the current auth and tool details on the data door.
+`https://hunterkiller.io/mcp` is the public door. Discovery, `list_symbols`
+and `hk_levels` need no key for the six Free coins, 2 hours behind. REST and
+these two tools share 60 requests per minute and 500 per UTC day per IP.
+Response headers state the actual limit and quota mode. Directory health
+checks that do not authenticate use this public apex URL.
+
+`https://agents.hunterkiller.io/mcp` is the Managed OAuth transport for live
+tools. Complete its normal sign in flow in your MCP client. OAuth transport
+access and paid Hunter Killer data entitlement are separate. The protected
+apex twin `/mcp/protected` retains the same gate. `registry/server.json`
+version 1.0.1 lists the public apex first and the OAuth remote second; it
+is hosted metadata, not an installable open source server implementation.
 
 ## Public source and risk
 
