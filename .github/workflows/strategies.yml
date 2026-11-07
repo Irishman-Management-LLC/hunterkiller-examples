@@ -1,0 +1,38 @@
+name: Paper strategy framework contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  framework:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Freqtrade 2026.10
+            image: freqtradeorg/freqtrade@sha256:956c03780934eeb93734a1f352e7e150b73becdafa3767a947a25ad2422fba2e
+            executable: python
+            pythonpath: /examples
+            test: native_freqtrade.py
+          - name: Hummingbot 2.17.0
+            image: hummingbot/hummingbot@sha256:aaccb15f549c3e530c8831dd3d8d0085739fbdf131d01cb334283f237746be21
+            executable: /opt/conda/envs/hummingbot/bin/python
+            pythonpath: /home/hummingbot
+            test: native_hummingbot.py
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Native types and callbacks in an offline container
+        env:
+          FRAMEWORK_IMAGE: ${{ matrix.image }}
+          PYTHON_BIN: ${{ matrix.executable }}
+          FRAMEWORK_PATH: ${{ matrix.pythonpath }}
+          TEST_MODULE: ${{ matrix.test }}
+        run: |
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --pids-limit 128 --memory 2g --cpus 2 --tmpfs /tmp:rw,size=128m \
+            -e PYTHONDONTWRITEBYTECODE=1 -e OPENBLAS_NUM_THREADS=1 \
+            -e PYTHONPATH="$FRAMEWORK_PATH" \
+            -v "$PWD/strategies:/examples:ro" -w /examples \
+            --entrypoint "$PYTHON_BIN" "$FRAMEWORK_IMAGE" "tests/$TEST_MODULE" -v

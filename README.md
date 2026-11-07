@@ -1,21 +1,18 @@
 # Hunter Killer agent examples
 
-Read liquidation walls, snapshot age, evidence labels and a public record.
-No orders are placed. Descriptive measurements, not trading advice.
-
-## Rollout status
-
-The keyless levels rollout and wrapper package publication are pending.
-Until the release is verified, the first call may return 401. A failure is
-never reported as a successful data receipt. No external paying use is claimed.
-
-## One call
-
 ```sh
 curl --fail-with-body --max-time 20 https://hunterkiller.io/api/v1/levels/BTCUSDT
 # Or, with only Python's standard library:
 python3 examples/one_call.py BTCUSDT
 ```
+
+The keyless rollout and wrapper publication are pending a live receipt. A first
+call can still return 401. A failure is never labeled as successful data. No
+external paying use is claimed.
+
+Read liquidation walls, snapshot age, evidence labels and a public record.
+The strategy examples use paper orders. Live execution is disabled.
+Descriptive measurements, not trading advice.
 
 Free data is 2 hours behind on six coins. Inspect `tier`, `delay_sec`,
 `as_of_iso`, `age_sec`, `nearest`, `walls`, `truth` and `record`. Keep these
@@ -34,6 +31,7 @@ are not confused with external adoption.
 * `schemas/composio-openapi.json`: public REST definition for custom bindings, not a hosted catalog listing.
 * `space`: manual Gradio ladder demo for Hugging Face Spaces.
 * `examples/sdk.py` and `examples/sdk.mjs`: existing published SDK Desk Read examples.
+* [`strategies`](strategies/README.md): Freqtrade and Hummingbot paper examples with point in time inputs. Real historical results remain pending.
 
 The wrappers call the public endpoint directly because the versions of the
 existing SDKs currently on PyPI and npm do not expose `levels`. They do not

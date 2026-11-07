@@ -15,7 +15,7 @@ def test_frameworks_call_the_same_transport_and_preserve_truth(monkeypatch):
     def read(request, timeout):
         seen.append(request)
         return io.BytesIO(json.dumps(DATA).encode())
-    monkeypatch.setattr(hk.urllib.request, "urlopen", read)
+    monkeypatch.setattr(hk, "_open", read)
     lc = langchain_tool()
     assert lc.invoke({"symbol": "BTCUSDT"}) == DATA
     assert set(lc.args) == {"symbol"}
