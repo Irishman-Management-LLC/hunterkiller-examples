@@ -1,17 +1,17 @@
 # Owner action block for Fable
 
-Prepared source is in `agent-integrations/examples`; only that subtree is for
-the public repository. Publish readiness is distinct from a live receipt. The
-public first call was still HTTP 401 during preparation on 2026-11-07. Release
-6218 and retain a marked probe returning the delayed contract before describing
-the keyless examples or demo as working. No external calls or payers are claimed.
+This block retains the original preparation steps. The keyless public door is
+now live in release 148 on 2026-11-07. The current mcp.so and Cursor follow-up is
+in [directory-followup.md](directory-followup.md); other account rows below are
+historical preparation, not a fresh status check. Publish readiness is distinct
+from a live receipt. No external calls or payers are claimed.
 
 | Destination | Owner only action and concrete payload | Boundary |
 | --- | --- | --- |
 | Official MCP Registry | On the owner Mac, `cd /Users/jasonhiggins/Projects/hk-agent-door-6219/source/agent-integrations/examples/registry`; run `/Users/jasonhiggins/Projects/hk-agent-door-6219/tools/mcp-publisher login github`, complete the GitHub device authorization as an Irishman-Management-LLC admin, then the lane can run `mcp-publisher publish` from this directory. Version 1.8.8 is downloaded from the official release and checksum matched; `server.json` passed the official online validator. | One browser login/authorization, not yet published. Registry uses the exact GitHub organization namespace. Verify the returned server record before calling it listed. |
 | Glama | Sign in at https://glama.ai/mcp/connectors; Add Server → Hosted endpoint. Paste `listing-payload.md`, agent hostname and Streamable HTTP. Complete normal OAuth in a dedicated least privilege Test Profile if required. | Browser host unavailable here, account state not inspected. No scanner exception or owner key disclosure. A pending health check is not a live indexed listing. |
-| Cursor Directory | Sign in at https://cursor.directory/plugins/new and submit the public `hunterkiller-examples` repository. Validated root `plugin.json` and `mcp.json` are ready. | Browser submission not made. Plugin approval remains the directory's decision. |
-| mcp.so | Decide whether to pay the current **39 USD one time publishing fee** at https://mcp.so/submit?type=remote-server. Name, description, hosted endpoint, public repository and links are in `listing-payload.md`. | Money decision held for the owner. No payment or submission made. |
+| Cursor Directory | Open the existing `hunterkiller` submission. After this copy PR merges, refresh or rescan the public repository if offered. The apex `mcp.json` is unchanged; the plugin description now states the delayed Free door needs no key. | Fable's last owner receipt was scan pending. Public read at 23:50Z returned 429, so current approval is unknown. No duplicate submission. Retain the result and published URL if approved. |
+| mcp.so | Edit the existing https://mcp.so/servers/hunter-killer listing using the exact fields in `directory-followup.md`. Keep the public apex connection; update description, authentication, overview and FAQ. | Already paid, Verified and Featured. Public read at 23:50Z still showed the old OAuth copy. Growth has no available browser host and claims no saved correction. No fee or new submission. |
 | PyPI | Owner publisher access is needed for `hunterkiller-langchain`, `hunterkiller-crewai`, `hunterkiller-composio`. Build each reviewed directory with `python -m build`; use the owner authenticated upload flow (`uv publish dist/*`) from each package directory, base package first. Never send a token in chat. | New package names are not yet published or reserved. Existing hunterkiller SDK publication stays with its owner. |
 | npm | `npm whoami` returned ENEEDAUTH on the owner Mac. Owner runs `npm login` and completes 2FA, then publish the reviewed `examples/packages/npm` with `npm publish --access public`. | `hunterkiller-agent-tools` is a new package; no existing SDK release is changed. Inspect `npm pack --dry-run` file list first. |
 | Hugging Face | Existing CLI identity is `Irishman5326` with no organization namespace. A private staging Space create attempt returned HTTP 403: current authentication lacks create rights. Owner signs in or uses the account UI to create `Irishman5326/hunterkiller-walls` as a **Gradio** Space on free CPU, then uploads only the three files in `examples/space`. | No Space was created or deployed; no GPU or paid hardware. Package publication is not needed by this standalone demo. Require a real button press returning the delayed contract before posting a live demo receipt. |
