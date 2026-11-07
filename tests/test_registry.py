@@ -7,6 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_registry_1_0_1_lists_public_apex_first_and_keeps_oauth():
     manifest = json.loads((ROOT / "registry/server.json").read_text())
     assert manifest["version"] == "1.0.1"
+    assert len(manifest["description"]) <= 100
+    assert manifest["repository"] == {"url": "https://github.com/Irishman-Management-LLC/hunterkiller-examples", "source": "github"}
     assert manifest["name"] == "io.github.Irishman-Management-LLC/hunterkiller"
     assert manifest["remotes"] == [{"type": "streamable-http", "url": url} for url in (
         "https://hunterkiller.io/mcp", "https://agents.hunterkiller.io/mcp")]
