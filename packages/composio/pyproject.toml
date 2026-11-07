@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hunterkiller-composio"
+version = "0.1.0"
+description = "Standalone read only liquidation wall tool for Composio sessions"
+requires-python = ">=3.10"
+license = "MIT"
+readme = "README.md"
+dependencies = ["hunterkiller-langchain==0.1.0", "composio>=0.31,<0.32"]
+
+[project.urls]
+Homepage = "https://hunterkiller.io/for-agents"
+Repository = "https://github.com/Irishman-Management-LLC/hunterkiller-examples"
+
+[tool.setuptools.packages.find]
+include = ["hunterkiller_composio*"]

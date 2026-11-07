@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hunterkiller-crewai"
+version = "0.1.0"
+description = "Read only liquidation wall tool for CrewAI"
+requires-python = ">=3.10,<3.14"
+license = "MIT"
+readme = "README.md"
+dependencies = ["hunterkiller-langchain==0.1.0", "crewai>=1.15,<2"]
+
+[project.urls]
+Homepage = "https://hunterkiller.io/for-agents"
+Repository = "https://github.com/Irishman-Management-LLC/hunterkiller-examples"
+
+[tool.setuptools.packages.find]
+include = ["hunterkiller_crewai*"]

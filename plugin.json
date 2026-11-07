@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hunterkiller",
+  "version": "0.1.0",
+  "description": "Read liquidation walls, snapshot age, evidence labels and the public record. Managed OAuth transport.",
+  "author": {
+    "name": "Irishman Management LLC"
+  },
+  "homepage": "https://hunterkiller.io/for-agents",
+  "repository": "https://github.com/Irishman-Management-LLC/hunterkiller-examples",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "crypto",
+    "liquidations",
+    "data"
+  ]
+}

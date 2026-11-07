@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hunterkiller-langchain"
+version = "0.1.0"
+description = "Read only liquidation wall tools for LangChain"
+requires-python = ">=3.10"
+license = "MIT"
+readme = "README.md"
+dependencies = []
+
+[project.optional-dependencies]
+langchain = ["langchain-core>=1.2,<2"]
+
+[project.urls]
+Homepage = "https://hunterkiller.io/for-agents"
+Repository = "https://github.com/Irishman-Management-LLC/hunterkiller-examples"
+
+[tool.setuptools.packages.find]
+include = ["hunterkiller_langchain*"]

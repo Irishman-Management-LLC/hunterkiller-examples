@@ -1,0 +1,15 @@
+{
+  "name": "hunterkiller-agent-tools",
+  "version": "0.1.0",
+  "description": "Read only liquidation walls for LangChain and function calling agents",
+  "type": "module",
+  "main": "index.js",
+  "exports": "./index.js",
+  "files": ["index.js", "README.md", "LICENSE"],
+  "engines": {"node": ">=20"},
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/Irishman-Management-LLC/hunterkiller-examples", "directory": "packages/npm"},
+  "homepage": "https://hunterkiller.io/for-agents",
+  "peerDependencies": {"@langchain/core": ">=1 <2", "zod": ">=4 <5"},
+  "peerDependenciesMeta": {"@langchain/core": {"optional": true}, "zod": {"optional": true}}
+}

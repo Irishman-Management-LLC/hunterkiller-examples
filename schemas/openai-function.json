@@ -1,0 +1,19 @@
+{
+  "type": "function",
+  "name": "hunterkiller_levels",
+  "description": "Read liquidation walls, snapshot age, evidence labels and the public record. Free data is 2 hours behind on six coins. Descriptive data, not trading advice.",
+  "strict": true,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "symbol": {
+        "type": "string",
+        "description": "Pair such as BTCUSDT"
+      }
+    },
+    "required": [
+      "symbol"
+    ],
+    "additionalProperties": false
+  }
+}

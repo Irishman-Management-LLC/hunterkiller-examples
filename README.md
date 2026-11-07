@@ -1,0 +1,57 @@
+# Hunter Killer agent examples
+
+Read liquidation walls, snapshot age, evidence labels and a public record.
+No orders are placed. Descriptive measurements, not trading advice.
+
+## Rollout status
+
+The keyless levels rollout and wrapper package publication are pending.
+Until the release is verified, the first call may return 401. A failure is
+never reported as a successful data receipt. No external paying use is claimed.
+
+## One call
+
+```sh
+curl --fail-with-body --max-time 20 https://hunterkiller.io/api/v1/levels/BTCUSDT
+# Or, with only Python's standard library:
+python3 examples/one_call.py BTCUSDT
+```
+
+Free data is 2 hours behind on six coins. Inspect `tier`, `delay_sec`,
+`as_of_iso`, `age_sec`, `nearest`, `walls`, `truth` and `record`. Keep these
+fields with any result you show. An empty ladder is not a trading instruction.
+Calls can return 401, 403, 402, 429 or 503; errors must reach the caller.
+Internal verification must use `python3 examples/one_call.py --probe` so probes
+are not confused with external adoption.
+
+## Integrations
+
+* `packages/langchain`: `hunterkiller-langchain`, Python transport and LangChain factory.
+* `packages/crewai`: `hunterkiller-crewai`, CrewAI factory using the same transport.
+* `packages/composio`: `hunterkiller-composio`, experimental standalone session tool.
+* `packages/npm`: `hunterkiller-agent-tools`, Node client, LangChain factory and function definitions.
+* `schemas/openai-function.json`: strict Responses API function schema. Dispatch to the read only HTTP client.
+* `schemas/composio-openapi.json`: public REST definition for custom bindings, not a hosted catalog listing.
+* `space`: manual Gradio ladder demo for Hugging Face Spaces.
+* `examples/sdk.py` and `examples/sdk.mjs`: existing published SDK Desk Read examples.
+
+The wrappers call the public endpoint directly because the versions of the
+existing SDKs currently on PyPI and npm do not expose `levels`. They do not
+compute walls or grades. Credentials, if supplied by the application, never
+appear in the model's argument schema. No payment is automatic.
+
+## MCP
+
+`https://agents.hunterkiller.io/mcp` is the Managed OAuth transport. Complete
+its normal sign in flow in your MCP client. OAuth transport access and paid
+Hunter Killer data entitlement are separate. `registry/server.json` describes
+that hosted server, not an installable open source server implementation.
+The public apex `https://hunterkiller.io/mcp` also offers discovery and public
+teasers. See the current auth and tool details on the data door.
+
+## Public source and risk
+
+[Agent door](https://hunterkiller.io/for-agents), [proof](https://hunterkiller.io/proof),
+[privacy](https://hunterkiller.io/legal/privacy), [risk](https://hunterkiller.io/legal/risk).
+Never infer a future return or trade recommendation from these measurements.
+No measured performance or backtest is claimed in this repository.

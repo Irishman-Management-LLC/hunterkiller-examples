@@ -1,0 +1,52 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hunter Killer delayed levels",
+    "version": "0.1.0",
+    "description": "Free data is 2 hours behind on six coins. Public record and age accompany each response. Read only."
+  },
+  "servers": [
+    {
+      "url": "https://hunterkiller.io"
+    }
+  ],
+  "paths": {
+    "/api/v1/levels/{symbol}": {
+      "get": {
+        "operationId": "hunterkiller_levels",
+        "summary": "Read liquidation walls, snapshot age, evidence labels and the public record. Free data is 2 hours behind on six coins. Descriptive data, not trading advice.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z0-9]{2,20}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source levels JSON with tier, delay, age and evidence"
+          },
+          "401": {
+            "description": "A key is required for this resource"
+          },
+          "402": {
+            "description": "Paid access required; no automatic payment"
+          },
+          "403": {
+            "description": "Coin not in the free set"
+          },
+          "429": {
+            "description": "Rate limit; do not retry automatically"
+          },
+          "503": {
+            "description": "Data unavailable; never invent a ladder"
+          }
+        }
+      }
+    }
+  }
+}
