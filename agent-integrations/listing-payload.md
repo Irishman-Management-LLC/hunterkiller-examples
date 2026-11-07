@@ -8,9 +8,12 @@ Managed OAuth at the agent hostname; paid data entitlement remains separate.
 
 Website: https://hunterkiller.io/for-agents
 
-Hosted MCP URL: https://agents.hunterkiller.io/mcp
+Hosted MCP URL for directory discovery and health: https://hunterkiller.io/mcp
 
-Transport: Streamable HTTP. Authentication: Managed OAuth.
+Transport: Streamable HTTP. Public discovery and delayed Free tools need no key.
+
+Managed OAuth transport: https://agents.hunterkiller.io/mcp
+OAuth access and paid data entitlement remain separate.
 
 Public examples and manifests: https://github.com/Irishman-Management-LLC/hunterkiller-examples
 
@@ -22,11 +25,15 @@ Risk: https://hunterkiller.io/legal/risk
 
 For mcp.so choose Remote Server, not an open source server repository. For
 Glama choose Connectors → Add Server → Hosted endpoint. A normal least privilege
-OAuth test profile must pass health before a listing is called live. Never
+connection to the public apex must pass health before a listing is called healthy. Never
 add a scanner bypass, provide owner credentials or put tokens in public fields.
 
 For Cursor Directory submit the public examples repository as an Agent Plugin.
 `plugin.json` and `mcp.json` are validated against their canonical schemas.
+The existing submission is `hunterkiller`; update or rescan it after the copy
+change is merged. Do not create a second submission. The plugin uses the public
+apex, not the Managed OAuth transport. Current review and scan state still need
+an owner readback; see [the directory follow-up](directory-followup.md).
 
 Application use cases: read BTC walls with the snapshot age; compare the nearest
 wall above and below a pair; inspect evidence labels and follow the public record.

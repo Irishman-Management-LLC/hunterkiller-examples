@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hunterkiller",
   "version": "0.1.0",
-  "description": "Read liquidation walls, snapshot age, evidence labels and the public record. Managed OAuth transport.",
+  "description": "Read liquidation walls, snapshot age and evidence. No key for six Free coins, 2 hours behind.",
   "author": {
     "name": "Irishman Management LLC"
   },

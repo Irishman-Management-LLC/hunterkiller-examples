@@ -6,9 +6,9 @@ curl --fail-with-body --max-time 20 https://hunterkiller.io/api/v1/levels/BTCUSD
 python3 examples/one_call.py BTCUSDT
 ```
 
-The keyless rollout and wrapper publication are pending a live receipt. A first
-call can still return 401. A failure is never labeled as successful data. No
-external paying use is claimed.
+The public keyless door is live as of release 148 on 2026-11-07. The first call
+needs no key for the six Free coins, 2 hours behind. Wrapper publication is a
+separate step; no external paying use is claimed. A failed call remains an error.
 
 Read liquidation walls, snapshot age, evidence labels and a public record.
 The strategy examples use paper orders. Live execution is disabled.
