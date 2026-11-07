@@ -14,5 +14,9 @@
       "type": "streamable-http",
       "url": "https://agents.hunterkiller.io/mcp"
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/Irishman-Management-LLC/hunterkiller-examples",
+    "source": "github"
+  }
 }
