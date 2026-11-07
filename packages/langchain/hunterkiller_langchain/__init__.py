@@ -18,6 +18,16 @@ class HunterKillerError(RuntimeError):
         super().__init__(f"Hunter Killer HTTP {status}")
 
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, fp, code, message, headers, new_url):
+        # A remote redirect must not carry an application's API key elsewhere.
+        return None
+
+
+def _open(request, *, timeout):
+    return urllib.request.build_opener(_NoRedirect()).open(request, timeout=timeout)
+
+
 def get_levels(symbol: str, *, key=None, probe=False):
     """One HTTP call. An omitted key stays omitted; errors never become data."""
     symbol = str(symbol).strip().upper()
@@ -30,7 +40,7 @@ def get_levels(symbol: str, *, key=None, probe=False):
         headers["X-HK-Probe"] = "1"
     request = urllib.request.Request(BASE_URL + "/api/v1/levels/" + symbol, headers=headers)
     try:
-        with urllib.request.urlopen(request, timeout=15) as response:
+        with _open(request, timeout=15) as response:
             data = json.load(response)
     except urllib.error.HTTPError as exc:
         try:

@@ -1,13 +1,16 @@
 """Manual one-call demo. No load-time API calls or timer that inflate usage."""
 import json
+import os
 import urllib.request
 import urllib.error
 import gradio as gr
 
 
 def load_levels():
-    request = urllib.request.Request("https://hunterkiller.io/api/v1/levels/BTCUSDT", headers={
-        "Accept": "application/json", "User-Agent": "hunterkiller-space/0.1.0"})
+    headers = {"Accept": "application/json", "User-Agent": "hunterkiller-space/0.1.0"}
+    if os.environ.get("HK_INTERNAL_PROBE") == "1":
+        headers["X-HK-Probe"] = "1"
+    request = urllib.request.Request("https://hunterkiller.io/api/v1/levels/BTCUSDT", headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=15) as response:
             data = json.load(response)

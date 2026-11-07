@@ -1,0 +1,31 @@
+{
+  "basis": "historical_public_wall_proxy",
+  "native_engine": "Freqtrade 2026.10",
+  "platform": "linux/arm64",
+  "image_index_digest": "sha256:0cc4b6dc9b16e0516d27efae1765e925da7d6aea5c8f3c3825930ffe3098d7c7",
+  "native_exit_code": 0,
+  "network": "none",
+  "read_only": true,
+  "caps": {
+    "memory": "2g",
+    "cpus": 2,
+    "pids": 128
+  },
+  "sources": {
+    "examples/freqtrade/HunterKillerWalls.py": "081454341dcc96778bc74a31823d8083766deba707f28a63afe7b1211f88a960",
+    "strategies/hk_strategy_core.py": "a50894b994b0c5f3cd5491fd4bdb31419ab758626a92137e481ae40e3d383b0f",
+    "strategies/run_freqtrade_backtest.py": "944e0b7404037286723cff45b21be6769d303af1fc4b1b4b2fb938370a66edea"
+  },
+  "results": {
+    "freqtrade.complete.json": "75e56224d51eee99e1d0853fa98206ff55b910d505981af567300531d603cdd1",
+    "grid.complete.json": "b268896fd3fd4e194e77452d2fa125b75d7b9d143b78de485756190ec16da3da"
+  },
+  "grid_equity_reporting_changed_fills": false,
+  "native_fresh_archive_sha256": "2870dcca1758973c81c35e8f3360814ca4230773c649fdb984b6542209877fff",
+  "native_verification": "Fresh native run compared every entry tag, timestamp, exit reason and net amount with the retained record",
+  "csv_line_endings": {
+    "format": "LF",
+    "parsed_market_rows_unchanged": true,
+    "fills_and_net_unchanged": true
+  }
+}

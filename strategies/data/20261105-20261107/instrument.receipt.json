@@ -1,0 +1,8 @@
+{
+  "url": "https://api.bybit.com/v5/market/instruments-info?category=spot&symbol=BTCUSDT",
+  "fetched_at": "2026-11-07T15:13:45.991661+00:00",
+  "status": 200,
+  "retCode": 0,
+  "sha256": "59ca02d10a2593450a7d2f729adc9ea8692e45e2d8827c6f6b36ce93057039aa",
+  "rows": 1
+}

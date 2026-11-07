@@ -1,0 +1,8 @@
+{
+  "url": "https://api.bybit.com/v5/market/kline?category=spot&symbol=BTCUSDT&interval=5&start=1793836500000&end=1794009599999&limit=1000",
+  "fetched_at": "2026-11-07T15:13:45.969460+00:00",
+  "status": 200,
+  "retCode": 0,
+  "sha256": "cacdc9afdb4646373df788b48d6a9867558982b7bf4d81b2ee6d386980eab11d",
+  "rows": 577
+}
