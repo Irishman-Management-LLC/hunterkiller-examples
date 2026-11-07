@@ -1,0 +1,27 @@
+name: Publish to the MCP registry
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["registry/server.json"]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install mcp-publisher
+        run: |
+          curl -sL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.8/mcp-publisher_1.8.8_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher --version
+      - name: Login with GitHub OIDC (organization namespace)
+        run: ./mcp-publisher login github-oidc
+      - name: Publish server.json
+        working-directory: registry
+        run: ../mcp-publisher publish
+      - name: Verify the record
+        run: |
+          sleep 5
+          curl -s "https://registry.modelcontextprotocol.io/v0/servers?search=hunterkiller" | head -c 1500
