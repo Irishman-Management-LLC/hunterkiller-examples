@@ -19,7 +19,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Hunter Killer",
-        "shortDescription": "Public delayed liquidation walls",
+        "shortDescription": "Free delayed liquidation walls",
         "longDescription": "No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data.\n\nRead BTC walls with the snapshot age; compare the nearest wall above and below a pair; inspect evidence labels and follow the public record. No execution, orders, accuracy figure, return claim or future outcome is promised.\n\nThe data tools are read-only. The server also advertises service feedback submission and a tool returning a Stripe Checkout URL for a human to purchase prepaid data access. Payments are not automatic.\n\nRisk: https://hunterkiller.io/legal/risk",
         "developerName": "Irishman Management LLC",
         "category": "Finance",

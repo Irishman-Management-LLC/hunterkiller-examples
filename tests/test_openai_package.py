@@ -29,6 +29,7 @@ def test_openai_archive_and_public_access_contract():
     }
     openai = plugin["extensions"]["com.openai"]
     assert PUBLIC_TEXT in plugin["description"]
+    assert len(openai["interface"]["shortDescription"]) <= 30
     assert PUBLIC_TEXT in openai["interface"]["longDescription"]
     assert PUBLIC_TEXT in openai["publication"]["release_notes"]
     assert PUBLIC_TEXT in (PACKAGE / "README.md").read_text()
