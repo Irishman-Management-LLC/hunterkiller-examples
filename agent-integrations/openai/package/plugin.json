@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hunterkiller",
   "version": "0.1.0",
-  "description": "Read liquidation walls, snapshot age, evidence labels and the public record. Managed OAuth transport.",
+  "description": "Read liquidation walls, snapshot age, evidence labels and the public record. No key needed for six Free coins, 2 hours behind.",
   "author": {
     "name": "Irishman Management LLC"
   },
@@ -20,7 +20,7 @@
       "interface": {
         "displayName": "Hunter Killer",
         "shortDescription": "Liquidation walls and evidence",
-        "longDescription": "Liquidation walls, snapshot age, evidence labels and a public record for crypto perpetual pairs. Read only. Free data is 2 hours behind on six coins. Managed OAuth at the agent hostname; paid data entitlement remains separate.\n\nRead BTC walls with the snapshot age; compare the nearest wall above and below a pair; inspect evidence labels and follow the public record. No execution, orders, accuracy figure, return claim or future outcome is promised.\n\nThe data tools are read-only. The server also advertises service feedback submission and a tool returning a Stripe Checkout URL for a human to purchase prepaid data access. Payments are not automatic.\n\nRisk: https://hunterkiller.io/legal/risk",
+        "longDescription": "Liquidation walls, snapshot age, evidence labels and a public record for crypto perpetual pairs. Read only. Free data is 2 hours behind on six coins. The public endpoint needs no key. Paid data entitlement is separate and is not part of this connector.\n\nRead BTC walls with the snapshot age; compare the nearest wall above and below a pair; inspect evidence labels and follow the public record. No execution, orders, accuracy figure, return claim or future outcome is promised.\n\nThe data tools are read-only. The server also advertises service feedback submission and a tool returning a Stripe Checkout URL for a human to purchase prepaid data access. Payments are not automatic.\n\nRisk: https://hunterkiller.io/legal/risk",
         "developerName": "Irishman Management LLC",
         "category": "Finance",
         "capabilities": [
@@ -97,7 +97,7 @@
         "demo_recording_url": "https://hunterkiller.io/assets/openai-demo.mp4"
       },
       "publication": {
-        "release_notes": "Initial OpenAI submission package for the hosted Managed OAuth MCP connector, including five positive and three negative review cases."
+        "release_notes": "Initial OpenAI submission package for the public Hunter Killer MCP endpoint (no authentication), five positive and three negative review cases."
       }
     }
   }

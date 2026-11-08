@@ -1,15 +1,15 @@
 # OpenAI review package for the public apex
 
-Fable ruling m-1794097680273-823c, card 6238b. The existing OpenAI draft's server
+Fable rulings m-1794097680273-823c and m-1794098558037-1d00, card 6238b. The existing OpenAI draft's server
 URL was locked to the original uploaded package. This replacement declares the
 public apex with Authentication None. No login or reviewer credential is needed
 for the Free door. Paid tools still enforce the existing entitlement.
 
 Package: [hunterkiller-openai-app.zip](hunterkiller-openai-app.zip)
 
-SHA256: `1a75b549593419e9065b7c9a6b5584ca43bc32cd5a2807adc30530c8aab850b0`
+SHA256: `74622407d897c48f10551b15c721d93b7578264c218b4c36b2e702dbf6edb92f`
 
-Size: 6784 bytes.
+Size: 6808 bytes.
 
 The ZIP contains root `plugin.json`, `mcp.json`, `LICENSE` and `assets/icon.png`.
 The unpacked [package](package/) is included for review. The MCP URL is
@@ -19,9 +19,9 @@ The unpacked [package](package/) is included for review. The MCP URL is
 The five positive and three negative cases remain identical to the approved
 original. The demo URL is explicitly included under
 `extensions.com.openai.review.demo_recording_url`:
-https://hunterkiller.io/assets/openai-demo.mp4 . All other original plugin
-fields, including the existing descriptions of the separate Managed OAuth
-transport, remain unchanged as requested. The icon and license are byte
+https://hunterkiller.io/assets/openai-demo.mp4 . The description, long description and release notes now state the public
+endpoint and no key needed exactly as ruled in1d00. The complete review object,
+including commerce_description, and all other original fields remain unchanged. The icon and license are byte
 identical. The challenge path remains `/.well-known/openai-apps-challenge`;
 this package does not change its hosted contents.
 
@@ -57,6 +57,6 @@ object. The exact diagnostic is retained in
 [evidence/portable-schema-diagnostic.json](evidence/portable-schema-diagnostic.json);
 no full portable MCP schema pass is claimed. This package follows OpenAI's
 explicit authentication declaration at the reference above. ZIP CRC, exact
-archive members, unpacked byte identity, unchanged cases and original fields,
+archive members, unpacked byte identity, unchanged cases and other original fields,
 asset paths and PNG dimensions are verified. Final portal import and saved
 Authentication None remain owner readbacks.
