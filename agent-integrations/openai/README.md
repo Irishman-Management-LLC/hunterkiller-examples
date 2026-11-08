@@ -1,62 +1,63 @@
 # OpenAI review package for the public apex
 
-Fable rulings m-1794097680273-823c and m-1794098558037-1d00, card 6238b. The existing OpenAI draft's server
-URL was locked to the original uploaded package. This replacement declares the
-public apex with Authentication None. No login or reviewer credential is needed
-for the Free door. Paid tools still enforce the existing entitlement.
+This updates the existing Hunter Killer OpenAI package to **0.1.1**. Its server is
+`https://hunterkiller.io/mcp`, with Authentication None. No OAuth configuration,
+request headers or reviewer credentials are included. The separate Managed OAuth
+service at `agents.hunterkiller.io` is unchanged.
 
-Package: [hunterkiller-openai-app.zip](hunterkiller-openai-app.zip)
+Package: [hunterkiller-openai-app.zip](hunterkiller-openai-app.zip).
+The exact size, SHA256, baseline provenance and preservation hashes are in
+[receipt.json](receipt.json). The ZIP contains root `plugin.json`, `mcp.json`,
+`LICENSE` and `assets/icon.png`; [package](package/) retains their exact bytes.
 
-SHA256: `74622407d897c48f10551b15c721d93b7578264c218b4c36b2e702dbf6edb92f`
+The description, long description and release notes state:
 
-Size: 6808 bytes.
+> No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data.
 
-The ZIP contains root `plugin.json`, `mcp.json`, `LICENSE` and `assets/icon.png`.
-The unpacked [package](package/) is included for review. The MCP URL is
-`https://hunterkiller.io/mcp`; its OpenAI authentication declaration is exactly
-`{"type": "none"}`, without an OAuth block or request headers.
-
-The five positive and three negative cases remain identical to the approved
-original. The demo URL is explicitly included under
-`extensions.com.openai.review.demo_recording_url`:
-https://hunterkiller.io/assets/openai-demo.mp4 . The description, long description and release notes now state the public
-endpoint and no key needed exactly as ruled in1d00. The complete review object,
-including commerce_description, and all other original fields remain unchanged. The icon and license are byte
-identical. The challenge path remains `/.well-known/openai-apps-challenge`;
+The publisher, icon, license, privacy and risk links, five positive cases, three
+negative cases, and demo URL remain unchanged. The demo is
+https://hunterkiller.io/assets/openai-demo.mp4 . Commerce disclosure retains the
+human Stripe Checkout step and states that payment and trading are not automatic.
+The package version is separate from registry version 1.0.2 and observed MCP
+server version 1.3.0. The challenge path remains `/.well-known/openai-apps-challenge`;
 this package does not change its hosted contents.
-
-Before packaging, marked anonymous initialize and tools/list requests to the
-public apex returned 200. All 18 tool titles, descriptions and annotation objects
-match the approved metadata now live in release 149. Receipts and actual public
-responses are retained in [evidence](evidence/). [receipt.json](receipt.json)
-records package hashes and the allowed field comparison with the original ZIP.
-
-The [official OpenAI packaging reference](https://developers.openai.com/plugins/build/plugins#configure-mcp-authentication)
-places Authentication None under each server's `extensions.com.openai.auth`.
-The [submission reference](https://developers.openai.com/plugins/deploy/submission#configure-onboarding-review-and-publication)
-defines the walkthrough field. Reviewer instructions stay outside the ZIP.
 
 ## Owner readback
 
-Upload the ZIP through the existing owner's OpenAI draft workflow. Check the
-retained MCP settings show the public apex and Authentication None, then rescan.
-Keep the eight review cases and walkthrough URL. Reviewer instructions:
+Replace the package in the existing owner's OpenAI draft. Verify the retained MCP
+URL and Authentication None, then rescan. Preserve the eight review cases and
+walkthrough URL. Copy this exact text into the portal's reviewer instructions:
 
-> No login is needed. Connect to https://hunterkiller.io/mcp. Free liquidation data covers six coins, 2 hours behind. Keep the returned tier, delay and snapshot age. Paid tools require the existing data entitlement and return an entitlement message when it is absent.
+> No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data.
 
-Retain the saved endpoint, authentication, scan result and final OpenAI
-submission confirmation. This source package and a successful download are
-preparation receipts; no upload, review acceptance or publication is claimed.
+Reviewer instructions are a separate portal field; this package does not invent
+an unsupported manifest field. The same public access text is in the package's
+description, long description and release notes so the ZIP conveys this context.
+Retain the saved endpoint, authentication, scan result and final submission
+confirmation. No portal upload, saved instruction change, review acceptance,
+submission or publication is claimed by this source package.
 
-## Validation scope
+## Validation and reproduction
+
+Run `python3 agent-integrations/openai/build_package.py` from the repository root
+to reproduce the ZIP using fixed timestamps, permissions and member order. Run
+the same command with `--check` to verify the retained ZIP, CRC and receipt hashes.
+The receipt must be refreshed whenever package source changes.
 
 The plugin manifest passes the portable version 1.0.0 schema. The generic MCP
-version 1.0.0 schema accepts the original base connection fields but does not
-define server vendor extensions, so it rejects the documented OpenAI auth
-object. The exact diagnostic is retained in
-[evidence/portable-schema-diagnostic.json](evidence/portable-schema-diagnostic.json);
-no full portable MCP schema pass is claimed. This package follows OpenAI's
-explicit authentication declaration at the reference above. ZIP CRC, exact
-archive members, unpacked byte identity, unchanged cases and other original fields,
-asset paths and PNG dimensions are verified. Final portal import and saved
-Authentication None remain owner readbacks.
+version 1.0.0 schema rejects server vendor extensions, including OpenAI's auth
+object; the base connection fields pass when that extension is removed only for
+the diagnostic. No full vanilla MCP schema pass is claimed. The retained
+[diagnostic](evidence/portable-schema-diagnostic.json) documents that limitation.
+The actual package retains OpenAI's documented `extensions.com.openai.auth`
+declaration with exactly `{"type":"none"}`.
+
+[Current public checks](evidence/public-review-20261108/) record anonymous
+initialize HTTP 200, initialized HTTP 202, tools/list HTTP 200 with 18 tools and
+a successful Free BTC read with `delay_sec: 7200`; demo HEAD returned HTTP 200
+and `video/mp4`. These are dated observations, separate from portal import.
+Archive CRC, source identity, deterministic reproduction, retained fields and
+the 192 by 192 PNG are verified.
+
+References: [OpenAI authentication](https://developers.openai.com/plugins/build/plugins#configure-mcp-authentication)
+and [submission](https://developers.openai.com/plugins/deploy/submission#configure-onboarding-review-and-publication).
