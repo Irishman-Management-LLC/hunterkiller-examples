@@ -1,0 +1,43 @@
+{
+  "built_at": "2026-11-08T14:54:19.880629+00:00",
+  "purpose": "NEW public OpenAI app; never upload as a new version of the existing OAuth app",
+  "plugin_name": "hunterkiller-public",
+  "display_name": "Hunter Killer",
+  "package_version": "0.1.1",
+  "file": "hunterkiller-public.zip",
+  "source": {
+    "commit": "9e4aa75d3629187d3b312431cef06c2a9734ab05",
+    "path": "agent-integrations/openai",
+    "zip_sha256": "3a16ee8ec1d4b3517c02b439ef9cb5982e2f4517abfe6759541010ee049991c8"
+  },
+  "allowed_manifest_changes": [
+    "name: hunterkiller to hunterkiller-public"
+  ],
+  "mcp_bytes_preserved": true,
+  "existing_package_unchanged": true,
+  "app_ids_or_update_bindings_present": false,
+  "provider_submission_performed": false,
+  "live_evidence": "../openai/evidence/public-review-20261108/",
+  "schema_validation": {
+    "plugin_canonical": "passed",
+    "full_mcp_portable_1_0_0": "fails because vanilla schema does not declare server extensions; diagnostic retained, no full portable pass claimed",
+    "mcp_base_fields_without_vendor_extension": "passed",
+    "openai_vendor_auth_contract": "exact auth type none at officially documented server extensions.com.openai.auth, no OAuth block or headers",
+    "source": "https://developers.openai.com/plugins/build/plugins#configure-mcp-authentication",
+    "openai_listing_short_description": "30 characters; within documented 30-character submission limit"
+  },
+  "bytes": 6780,
+  "sha256": "c59ac96ac9a6d4f3fe033df4ca6cf095dd51ba9e682487a63948aecf5879a27e",
+  "archive_members": [
+    "plugin.json",
+    "mcp.json",
+    "LICENSE",
+    "assets/icon.png"
+  ],
+  "member_sha256": {
+    "plugin.json": "4a3ea5a174fbc96be09bc45f116b6e632afb8d1b2ea15b29e790287591b77f2a",
+    "mcp.json": "a987409523cc4f6b9198066cdefcad1267823e4162c8ae0003696e71415f6df3",
+    "LICENSE": "e2a33a869a84c18c5fa87023ddc7557d1237539972955de9379efb7c9c7e7daa",
+    "assets/icon.png": "c5166c7d84011e5e7f82bb21c6299fe4f4c87a1d775fd65d8304042c1fa49535"
+  }
+}

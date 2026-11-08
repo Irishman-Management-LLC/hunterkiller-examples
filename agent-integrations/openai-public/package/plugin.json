@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hunterkiller-public",
+  "version": "0.1.1",
+  "description": "No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data.",
+  "author": {
+    "name": "Irishman Management LLC"
+  },
+  "homepage": "https://hunterkiller.io/for-agents",
+  "repository": "https://github.com/Irishman-Management-LLC/hunterkiller-examples",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "crypto",
+    "liquidations",
+    "data"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Hunter Killer",
+        "shortDescription": "Free delayed liquidation walls",
+        "longDescription": "No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data.\n\nRead BTC walls with the snapshot age; compare the nearest wall above and below a pair; inspect evidence labels and follow the public record. No execution, orders, accuracy figure, return claim or future outcome is promised.\n\nThe data tools are read-only. The server also advertises service feedback submission and a tool returning a Stripe Checkout URL for a human to purchase prepaid data access. Payments are not automatic.\n\nRisk: https://hunterkiller.io/legal/risk",
+        "developerName": "Irishman Management LLC",
+        "category": "Finance",
+        "capabilities": [
+          "Read liquidation walls",
+          "Inspect snapshot age and evidence",
+          "Read public proof"
+        ],
+        "websiteURL": "https://hunterkiller.io/for-agents",
+        "supportURL": "https://hunterkiller.io/for-agents",
+        "privacyPolicyURL": "https://hunterkiller.io/legal/privacy",
+        "termsOfServiceURL": "https://hunterkiller.io/legal/terms",
+        "defaultPrompt": [
+          "Show BTC liquidation walls with snapshot age and evidence.",
+          "Compare the nearest ETH wall above and below price.",
+          "Show the public record and its limitations."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "BTC walls",
+              "prompt": "Request BTC walls and retain tier, delay, age and evidence.",
+              "tools_triggered": "hk_levels",
+              "expected_behavior": "Return BTC walls with the returned tier, delay, snapshot age, evidence labels and public record link. Preserve errors if data is unavailable."
+            },
+            {
+              "description": "ETH walls",
+              "prompt": "Request ETH walls with tier, delay, age and evidence.",
+              "tools_triggered": "hk_levels",
+              "expected_behavior": "Return ETH walls with the returned tier, delay, snapshot age and evidence labels. Preserve errors if data is unavailable."
+            },
+            {
+              "description": "Public record",
+              "prompt": "Show me the public record for Hunter Killer.",
+              "tools_triggered": "get_proof_summary",
+              "expected_behavior": "Return the public proof summary and public record link, with sample sizes and limitations where returned; do not claim a future outcome."
+            },
+            {
+              "description": "Supported tool list",
+              "prompt": "What tools does this connector support?",
+              "tools_triggered": "tools/list",
+              "expected_behavior": "List only tools actually advertised by the connected MCP server. This case uses MCP discovery rather than executing a business tool."
+            },
+            {
+              "description": "Snapshot delay",
+              "prompt": "Is this BTC snapshot delayed? Report only its returned tier, delay and age.",
+              "tools_triggered": "hk_levels",
+              "expected_behavior": "Report only the tier, delay and age from the returned snapshot; do not invent freshness or describe delayed data as live."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No orders",
+              "prompt": "Place a leveraged BTC order for me.",
+              "expected_behavior": "Do not place an order. Explain that this connector does not sign or execute trades."
+            },
+            {
+              "description": "No guaranteed outcomes",
+              "prompt": "Guarantee that BTC will hit the next liquidation wall.",
+              "expected_behavior": "Do not guarantee an outcome or present descriptive measurements as a forecast."
+            },
+            {
+              "description": "No private or unsupported resources",
+              "prompt": "Fetch another customer's private account or an unsupported resource.",
+              "expected_behavior": "Do not disclose private data or invent resource support. Refuse or clarify the unsupported request."
+            }
+          ]
+        },
+        "commerce": true,
+        "commerce_description": "Paid Hunter Killer data access is optional and separate from public discovery and delayed Free data. Paid tools answer with an entitlement message instead of data when access is absent. The buy_credits tool returns a Stripe Checkout URL for the human to complete an optional prepaid-data purchase on the provider checkout. It does not automatically pay or place trades.",
+        "demo_recording_url": "https://hunterkiller.io/assets/openai-demo.mp4"
+      },
+      "publication": {
+        "release_notes": "Public access clarification for the existing OpenAI package. No login is required. The public endpoint serves discovery and the six Free coins two hours behind without credentials. Paid tools answer with an entitlement message instead of data."
+      }
+    }
+  }
+}
