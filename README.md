@@ -52,8 +52,10 @@ checks that do not authenticate use this public apex URL.
 tools. Complete its normal sign in flow in your MCP client. OAuth transport
 access and paid Hunter Killer data entitlement are separate. The protected
 apex twin `/mcp/protected` retains the same gate. `registry/server.json`
-version 1.0.1 lists the public apex first and the OAuth remote second; it
-is hosted metadata, not an installable open source server implementation.
+version 1.0.2 lists only the public apex so unauthenticated directory checks
+select the public door. The OAuth transport remains available separately.
+The registry record is hosted metadata, not an installable open source server
+implementation.
 
 ## Public source and risk
 

@@ -1,15 +1,15 @@
-"""Fable6219: directory probes use public apex; registered OAuth door remains."""
+"""The official registry exposes only the public, unauthenticated MCP door."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def test_registry_1_0_1_lists_public_apex_first_and_keeps_oauth():
+def test_registry_1_0_2_lists_only_public_apex():
     manifest = json.loads((ROOT / "registry/server.json").read_text())
-    assert manifest["version"] == "1.0.1"
+    assert manifest["version"] == "1.0.2"
     assert manifest["name"] == "io.github.Irishman-Management-LLC/hunterkiller"
-    assert manifest["remotes"] == [{"type": "streamable-http", "url": url} for url in (
-        "https://hunterkiller.io/mcp", "https://agents.hunterkiller.io/mcp")]
+    assert manifest["remotes"] == [
+        {"type": "streamable-http", "url": "https://hunterkiller.io/mcp"}]
     assert "packages" not in manifest
 
 def test_cursor_plugin_uses_unauthenticated_health_door():
