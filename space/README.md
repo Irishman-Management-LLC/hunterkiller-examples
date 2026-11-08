@@ -16,6 +16,8 @@ One button reads BTC liquidation walls from Hunter Killer. The free snapshot is
 2 hours behind. Snapshot age and evidence labels accompany the ladder. There
 are no background calls, orders, keys or paid generation. A failed request
 shows an error instead of made up levels. No secrets or API key are required.
+The app runs on CPU; on ZeroGPU hardware it registers one never-called GPU
+marker function so the Space starts (ZeroGPU refuses to boot without one).
 For owner verification, set the optional Space variable `HK_INTERNAL_PROBE=1`;
 those requests carry the internal probe header and must not count as adoption.
 Unset that variable for genuine public use after the keyless API live receipt.

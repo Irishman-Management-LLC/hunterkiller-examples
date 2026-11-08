@@ -3,7 +3,21 @@ import json
 import os
 import urllib.request
 import urllib.error
+try:
+    # ZeroGPU Spaces refuse to start unless one @spaces.GPU function exists at startup.
+    # This demo needs no GPU: the decorated function below is never called, and the real
+    # handler runs on CPU. On CPU Basic hardware the import fails and nothing changes.
+    import spaces  # noqa: F401
+except Exception:  # pragma: no cover
+    spaces = None
 import gradio as gr
+
+
+if spaces is not None:
+    @spaces.GPU(duration=1)
+    def _zerogpu_startup_marker():
+        """Never called. Exists only so ZeroGPU detects a GPU function at startup."""
+        return "cpu-only demo"
 
 
 def load_levels():
