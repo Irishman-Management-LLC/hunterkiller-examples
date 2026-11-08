@@ -1,0 +1,39 @@
+{
+  "verified_at": "2026-11-08T00:31:44.977583+00:00",
+  "release_authority": "m-1794097680227-9e04",
+  "url": "https://hunterkiller.io/mcp",
+  "requests": [
+    {
+      "method": "initialize",
+      "status": 200,
+      "status_evidence": "HTTP200 asserted before retained body was written",
+      "file": "initialize.response.json",
+      "file_recorded_at": "2026-11-08T00:30:02.508285+00:00",
+      "sha256": "5ff0d66a7246af7e19a0e0076f30cc1091279745f82241b84546972bcb17ff8d",
+      "probe": true,
+      "anonymous": true
+    },
+    {
+      "method": "tools/list",
+      "status": 200,
+      "status_evidence": "HTTP200 asserted before retained body was written",
+      "file": "tools.response.json",
+      "file_recorded_at": "2026-11-08T00:30:03.452633+00:00",
+      "sha256": "c8426b72f6987c59590f541ad46e5619a98015bfd95a0a4985ba91b2c5c0b5e0",
+      "probe": true,
+      "anonymous": true
+    }
+  ],
+  "tools": 18,
+  "required_boolean_hints": [
+    "readOnlyHint",
+    "destructiveHint",
+    "openWorldHint"
+  ],
+  "optional_hints": "all present annotation values are booleans; idempotentHint is present on subscribe_events only, exactly as shipped",
+  "approved_metadata_matches": true,
+  "comparison_source": "PR703 metadata included in selected9dbe3ab4 capture",
+  "initial_local_check": "Rejected optional idempotentHint absence before reconciliation; corrected to the three shipped required hints. No service or stock test/gate policy changed.",
+  "provider_authentication_observed": false,
+  "external_adoption_inferred": false
+}

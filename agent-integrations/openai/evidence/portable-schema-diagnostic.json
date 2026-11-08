@@ -1,0 +1,34 @@
+{
+  "schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "result": "rejected OpenAI vendor extension",
+  "errors": [
+    {
+      "path": [
+        "type"
+      ],
+      "message": "'stdio' was expected"
+    },
+    {
+      "path": [],
+      "message": "'command' is a required property"
+    },
+    {
+      "path": [],
+      "message": "Additional properties are not allowed ('extensions', 'url' were unexpected)"
+    },
+    {
+      "path": [],
+      "message": "Additional properties are not allowed ('extensions' was unexpected)"
+    },
+    {
+      "path": [
+        "type"
+      ],
+      "message": "'sse' was expected"
+    },
+    {
+      "path": [],
+      "message": "Additional properties are not allowed ('extensions' was unexpected)"
+    }
+  ]
+}
